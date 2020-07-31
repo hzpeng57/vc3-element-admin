@@ -1,23 +1,30 @@
 <template>
-    <div>
-        <h1>page1</h1>
-        <el-button>默认按钮</el-button>
-        <br>
-        <el-link href="https://element.eleme.io" target="_blank">默认链接</el-link>
-        <br>
-        <el-link type="primary">主要链接</el-link>
-        <br>
-
-    </div>
+  <div class="main">
+    <el-button type="primary" @click="handleClick">测试自定义Dialog</el-button>
+  </div>
 </template>
 
 <script>
+import Dialog from '@/components/Dialog/index'
 
-    export default {
-        name: 'page1',
+export default {
+  name: 'page1',
+  methods: {
+    handleClick() {
+      Dialog.show({
+        title: '测试弹框'
+      }).then(res => {
+        console.log(res)
+      }).catch(err => {
+        console.log(err)
+      })
     }
+  }
+}
 </script>
 
-<style scoped>
-
+<style lang="scss" scoped>
+.main {
+  padding: 20px;
+}
 </style>
